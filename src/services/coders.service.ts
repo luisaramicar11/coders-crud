@@ -31,7 +31,7 @@ export class CoderService {
 
     async create(coder: ICoder){
         try {
-            const newCoder = await this.httpClient.post<string, ICoder>("coders", coder)
+            const newCoder = await this.httpClient.post<ICoder, ICoder>("coders", coder)
             return newCoder;
         } catch (error) {
             console.log(error);
@@ -40,7 +40,7 @@ export class CoderService {
         }
     }
 
-    async update(id: string, coder: ICoder): Promise<ICoder>{
+    async update(id: string, coder: ICoder){
         try {
             const updatedCoder = await this.httpClient.put<ICoder, ICoder>(`coders/${id}`, coder)
             return updatedCoder;
